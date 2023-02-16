@@ -102,10 +102,10 @@ body {
 			content: " \f0de";
 			font-family: "FontAwesome";
 		}
-		/*Style disabled*/
+		/* Style disabled
 		.tablemanager th.disableSort {
 
-		}
+		} */
 		#for_numrows {
 			padding: 10px;
 			float: left;
