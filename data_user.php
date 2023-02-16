@@ -137,7 +137,13 @@ body {
 				<th style="text-align:center;" class="disableSort">Report</th>	
 				<th class="disableSort">Status</th>
 				<th style="text-align:center;" class="disableSort">PIC</th>
-				<th style="text-align:center;" class="disableSort">ACTION</th>
+				<?php
+					$level = $_SESSION['level'];
+					if ($level=="super user"){
+					echo "<th style='text-align:center;' class='disableSort'>"."ACTION"."</th>";
+					}
+					// <th style="text-align:center;" class="disableSort">ACTION</th>
+				?>
 			</tr>
             
             </thead>	
@@ -155,6 +161,7 @@ else{
 }
 $nomor = 1;
 while($data = mysqli_fetch_array($query_mysql)){
+	$level = $_SESSION['level'];
 	$kodewarna = $data['status'];
 	$file = 'file/'.$data['report'];
 if($data['report'] > 1){
@@ -190,10 +197,12 @@ if(strpos($kodewarna,'Progress')!==false){
 		echo "<td style='text-align:center;'><a href='$file'>".$filename."</a></td>";
 		echo "<td bgcolor=$warna>".$data['status']."</td>";
 		echo "<td style='text-align:center;'>".$data['nama']."</td>";	
-        echo "<td style='text-align:center;'>";	
-        echo "<a class='btn btn-warning' href='edit.php?id=$data[id]'>Update</a> ";	
-        echo "<a onClick=\"return confirm('Are you sure you want to delete?')\" class='btn btn-danger' href='hapus.php?id=$data[id]'>Delete</a>";	
-        echo "</td>";        			
+		if ($level=="super user"){
+			echo "<td style='text-align:center;'>";	
+			echo "<a class='btn btn-warning' href='edit.php?id=$data[id]'>Update</a> ";	
+			echo "<a onClick=\"return confirm('Are you sure you want to delete?')\" class='btn btn-danger' href='hapus.php?id=$data[id]'>Delete</a>";
+			echo "</td>";
+		}	        			
 echo "</tr>";
 echo "</tbody>";
 ?>
@@ -218,4 +227,5 @@ echo "</tbody>";
 		});
 		// $('.tablemanager').tablemanager();
 </script>
+
 </html>
