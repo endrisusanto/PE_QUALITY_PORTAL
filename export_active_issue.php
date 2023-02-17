@@ -12,7 +12,7 @@ if( !isset($_SESSION['name']) ){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Export Data Ke Excel</title>
+	<title>Download Data Ke Excel</title>
 </head>
 <body>
 <table  border="1">
