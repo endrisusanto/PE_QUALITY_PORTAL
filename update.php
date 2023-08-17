@@ -1,5 +1,5 @@
 <?php 
-$koneksi = mysqli_connect("localhost","root","","pe_analisa");
+$koneksi = mysqli_connect("localhost","root","","gba_task");
 $id = $_POST['id'];
 $nama = $_POST['nama'];
 $week = $_POST['week'];

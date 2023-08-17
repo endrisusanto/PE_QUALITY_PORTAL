@@ -39,9 +39,9 @@ if( !isset($_SESSION['name']) ){
 
 
 
-$koneksi = mysqli_connect("localhost","root","","pe_analisa");
+$koneksi = mysqli_connect("localhost","root","","gba_task");
 $pengguna = $_SESSION['name'];
-$query_mysql = mysqli_query($koneksi,"SELECT * FROM `analisa` WHERE 1 ORDER BY `analisa`.`id` ASC ");
+$query_mysql = mysqli_query($koneksi,"SELECT * FROM `task` WHERE 1 ORDER BY `task`.`id` ASC ");
 $nomor = 1;
 while($data = mysqli_fetch_array($query_mysql)){
 	$kodewarna = $data['status'];

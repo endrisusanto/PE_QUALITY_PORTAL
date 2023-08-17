@@ -10,7 +10,7 @@
     <meta property="og:image" content="http://107.102.39.55/pe_analisa/file/2.jpg" />
     <meta property="og:title" content="SOLUTION ANALISA" />
 
-    <title>PE QUALITY PORTAL</title>
+    <title>GOOGLE BUILD APPROVAL</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">

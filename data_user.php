@@ -12,7 +12,7 @@ if( !isset($_SESSION['name']) ){
 <!DOCTYPE html>
 <html>
 <head>
-<title>MANAGE ISSUE</title>
+<title>MANAGE TASK</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,13 +30,13 @@ if( !isset($_SESSION['name']) ){
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">PE QUALITY PORTAL</a>
+      <a class="navbar-brand" href="index.php">GOOGLE BUILD APPROVAL</a>
     </div>
       <ul class="nav navbar-nav navbar-right">      
 	  <li class="dropdown"><a class="dropdown-toggle thick" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Hi , <?php if( !isset($_SESSION['name']) ){    echo "Selamat Datang !" ;}   else{    echo $_SESSION['name']." [".$_SESSION['level']."]" ;}    ?>
         <ul class="dropdown-menu">
 			<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> DASHBOARD</a></li>
-            <li><a href="active_issue.php"><span class="glyphicon glyphicon-exclamation-sign"></span> ACTIVE ISSUE</a></li>
+            <li><a href="active_task.php"><span class="glyphicon glyphicon-exclamation-sign"></span> ACTIVE TASK</a></li>
             <li><a href="password.php"><span class="glyphicon glyphicon-user"></span> SETTING</a></li>
       		<li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
         </ul>
@@ -128,9 +128,9 @@ body {
 				<th class="disableSort">ID Issue</th>
 				<th class="disableSort">Week</th>
 				<th class="disableSort">Type</th>
-				<th class="disableSort">Model</th>
-				<th class="disableSort">Place</th>
-				<th class="disableSort">Issue</th>
+				<th class="disableSort">AP VERSION</th>
+				<th class="disableSort">CP VERSION</th>
+				<th class="disableSort">CSC VERSION</th>
 				<th class="disableSort">Cause</th>
 				<th class="disableSort">Sample Recieve</th>
 				<th class="disableSort">Sample Analyzed</th>
@@ -151,13 +151,13 @@ body {
 
 
 
-$koneksi = mysqli_connect("localhost","root","","pe_analisa");
+$koneksi = mysqli_connect("localhost","root","","gba_task");
 if ($_SESSION['level']=='super user'){
-	$query_mysql = mysqli_query($koneksi,"SELECT * FROM `analisa` WHERE 1 ORDER BY `analisa`.`week` DESC ");
+	$query_mysql = mysqli_query($koneksi,"SELECT * FROM `task` WHERE 1 ORDER BY `task`.`week` DESC ");
 }
 else{
 	$pengguna = $_SESSION['name'];
-	$query_mysql = mysqli_query($koneksi,"SELECT * FROM `analisa` WHERE nama='$pengguna'  ORDER BY `analisa`.`week` DESC ");	
+	$query_mysql = mysqli_query($koneksi,"SELECT * FROM `task` WHERE nama='$pengguna'  ORDER BY `task`.`week` DESC ");	
 }
 $nomor = 1;
 while($data = mysqli_fetch_array($query_mysql)){

@@ -2,6 +2,6 @@
 $host     = 'localhost';
 $user     = 'root'; 
 $password = '';  
-$db       = 'pe_analisa'; 
+$db       = 'gba_task'; 
 $con = mysqli_connect($host, $user, $password, $db) or die(mysqli_error());
 ?>

@@ -12,7 +12,7 @@ if( !isset($_SESSION['name']) ){
 <!DOCTYPE html>
 <html>
 <head>
-<title>PE QUALITY PORTAL</title>
+<title>GOOGLE BUILD APPROVAL</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap CSS -->
@@ -35,7 +35,7 @@ if( !isset($_SESSION['name']) ){
 	error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 	
 	//koneksi ke database
-	$con = new mysqli("localhost", "root", "", "pe_analisa");
+	$con = new mysqli("localhost", "root", "", "gba_task");
 	if ($con->connect_errno) {
 		echo die("Failed to connect to MySQL: " . $con->connect_error);
 	}

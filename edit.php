@@ -13,7 +13,7 @@ require('koneksi.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title>PE QUALITY PORTAL</title>
+<title>GOOGLE BUILD APPROVAL</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap CSS -->
@@ -42,9 +42,9 @@ body {
 </style>
 <body> 
 	<?php 
-	$koneksi = mysqli_connect("localhost","root","","pe_analisa");
+	$koneksi = mysqli_connect("localhost","root","","gba_task");
 	$id = $_GET['id'];
-	$query_mysql = mysqli_query($koneksi,"SELECT * FROM analisa WHERE id='$id'");
+	$query_mysql = mysqli_query($koneksi,"SELECT * FROM task WHERE id='$id'");
 	$nomor = 1;  
     $query ="SELECT `name` FROM users";
     $pic_level = $_SESSION['level'];
@@ -103,9 +103,10 @@ body {
 								<option value="<?php echo $data['type'] ?>"><?php echo $data['type'] ?></option>
                         </optgroup>
                         <optgroup label="Option Update">
-								<option>Etc.</option>
-								<option>HW</option>
-								<option>MECHA</option>
+								<option>NORMAL EXCEPTION</option>
+								<option>SMR</option>
+								<option>SIMPLE EXCEPTION</option>
+                                <option>REGULAR</option>
                         </optgroup>
 						</select>
                     </div>					

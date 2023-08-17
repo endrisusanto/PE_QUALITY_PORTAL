@@ -1,5 +1,5 @@
 <?php 
-$koneksi = mysqli_connect("localhost","root","","pe_analisa");
+$koneksi = mysqli_connect("localhost","root","","gba_task");
 $nama = $_POST['nama'];
 $part = $_POST['part'];
 $week = $_POST['week'];
@@ -23,10 +23,10 @@ $ext = pathinfo($filename, PATHINFO_EXTENSION);
 if($ukuran > 0){		
 	$xx = $rand.'_'.$filename;
 	move_uploaded_file($_FILES['report']['tmp_name'], 'file/'.$rand.'_'.$filename);
-	mysqli_query($koneksi,"INSERT INTO analisa VALUES('', '$issue_id', '$nama', '$week', '$type', '$model',  '$place','$issue', '$cause', '$sample_recieve', '$sample_analyze', '$xx', '$status', '$timestamp', '$part')"); 
+	mysqli_query($koneksi,"INSERT INTO task VALUES('', '$issue_id', '$nama', '$week', '$type', '$model',  '$place','$issue', '$cause', '$sample_recieve', '$sample_analyze', '$xx', '$status', '$timestamp', '$part')"); 
 	header("location:active_issue.php?alert=berhasil_disimpan");
 }else{
-	mysqli_query($koneksi,"INSERT INTO analisa VALUES('', '$issue_id', '$nama', '$week', '$type', '$model',  '$place','$issue', '$cause', '$sample_recieve', 'N/A', '', '$status', '$timestamp', '$part')"); 
+	mysqli_query($koneksi,"INSERT INTO task VALUES('', '$issue_id', '$nama', '$week', '$type', '$model',  '$place','$issue', '$cause', '$sample_recieve', 'N/A', '', '$status', '$timestamp', '$part')"); 
 	header("location:active_issue.php?alert=berhasil_disimpan_tanpa_attachment");
 }
 ?>

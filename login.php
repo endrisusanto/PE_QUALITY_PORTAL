@@ -75,9 +75,9 @@ if( isset($_POST['submit']) ){
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" type="image/x-icon" href="file/pe.ico">
 <meta property="og:image" content="http://107.102.39.55/pe_analisa/file/2.jpg" />
-<meta property="og:title" content="PE ANALISA" />
+<meta property="og:title" content="GOOGLE BUILD APPROVAL" />
 
-<title>PE QUALITY PORTAL</title>
+<title>GOOGLE BUILD APPROVAL</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
