@@ -4,33 +4,33 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "pe_analisa";
+$dbname = "gba_task";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 //Menghitung jumlah total request
-	$query = "SELECT COUNT(status) AS count FROM analisa"; 
+	$query = "SELECT COUNT(status) AS count FROM task"; 
 $query_result = mysqli_query($conn,$query); 
 while($row = mysqli_fetch_assoc($query_result)){
 	$total = $row['count'];
 }
 	
 //Menghitung jumlah total yang approved
-	$query = "SELECT COUNT(status) AS count FROM analisa WHERE status LIKE '%Issue Baru%' "; 
+	$query = "SELECT COUNT(status) AS count FROM task WHERE status LIKE '%Issue Baru%' "; 
 $query_result = mysqli_query($conn,$query); 
 while($row = mysqli_fetch_assoc($query_result)){
 	$baru = $row['count'];
 }
 	
 //Menghitung jumlah total yang progress
-	$query = "SELECT COUNT(status) AS count FROM analisa WHERE status LIKE '%progress%' "; 
+	$query = "SELECT COUNT(status) AS count FROM task WHERE status LIKE '%progress%' "; 
 $query_result = mysqli_query($conn,$query); 
 while($row = mysqli_fetch_assoc($query_result)){
 	$progress = $row['count'];
 }
 	
 //Menghitung jumlah total yang progress
-	$query = "SELECT COUNT(status) AS count FROM analisa WHERE status LIKE '%finish%' "; 
+	$query = "SELECT COUNT(status) AS count FROM task WHERE status LIKE '%finish%' "; 
 $query_result = mysqli_query($conn,$query); 
 while($row = mysqli_fetch_assoc($query_result)){
 	$finish = $row['count'];
@@ -39,8 +39,9 @@ while($row = mysqli_fetch_assoc($query_result)){
 ?>
 <!DOCTYPE html>
 <html>
+	
 <head>
-<title>PE QUALITY PORTAL</title>
+<title>GOOGLE BUILD APPROVAL</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -54,13 +55,13 @@ while($row = mysqli_fetch_assoc($query_result)){
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
-		<a class="navbar-brand" href="index.php">PE QUALITY PORTAL</a>
+		<a class="navbar-brand" href="index.php">GOOGLE BUILD APPROVAL</a>
 		</div>
 		<ul class="nav navbar-nav navbar-right">      
 			<li class="dropdown"><a class="dropdown-toggle thick" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Hi , <?php if( !isset($_SESSION['name']) ){    echo "Selamat Datang" ;}   else{    echo $_SESSION['name']." [".$_SESSION['level']."]" ;}    ?>
 				<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="active_issue.php"><span class="glyphicon glyphicon-log-in"></span><?php if( !isset($_SESSION['name']) ){    echo " LOGIN" ;}   else{   echo " MANAGE ISSUE" ;}    ?></a></li>
+					<li><a href="active_task.php"><span class="glyphicon glyphicon-log-in"></span><?php if( !isset($_SESSION['name']) ){    echo " LOGIN" ;}   else{   echo " MANAGE TASK" ;}    ?></a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-signal"></span> <?php echo "YOUR IP : " . $_SERVER['REMOTE_ADDR'];?> </a></li>
 					<li><?php if( !isset($_SESSION['name']) ){    echo "<a href='password.php'><span class='glyphicon glyphicon-cog'></span> SETTING</a>" ;}   else{   echo "<a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> LOGOUT</a>" ;}    ?></li>
 				</ul>
@@ -173,13 +174,13 @@ button {
 	<div class="panel-body status">
 		<div class="col-sm-3" >
 			<div class="panel panel-default">
-				<div class="panel-heading center"><b>TOTAL ISSUE</b></div>
+				<div class="panel-heading center"><b>TOTAL TASK</b></div>
 					<div class="panel-body total"><?php echo $total ?></div>
 			</div>
 		</div> 
 		<div class="col-sm-3" >
 			<div class="panel panel-default">
-				<div class="panel-heading center"><b>ISSUE BARU</b></div>
+				<div class="panel-heading center"><b>TASK BARU</b></div>
 					<div class="panel-body baru"><?php echo $baru ?></div>
 			</div>
 		</div> 
@@ -222,8 +223,8 @@ button {
 
 
 
-$koneksi = mysqli_connect("localhost","root","","pe_analisa");
-$query_mysql = mysqli_query($koneksi,"SELECT * FROM `analisa` WHERE 1 ORDER BY `analisa`.`sample_recieve` DESC ");
+$koneksi = mysqli_connect("localhost","root","","gba_task");
+$query_mysql = mysqli_query($koneksi,"SELECT * FROM `task` WHERE 1 ORDER BY `task`.`sample_recieve` DESC ");
 $nomor = 1;
 while($data = mysqli_fetch_array($query_mysql)){
 	$kodewarna = $data['status'];
